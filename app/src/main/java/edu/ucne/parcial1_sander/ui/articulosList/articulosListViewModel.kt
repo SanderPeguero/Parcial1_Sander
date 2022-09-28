@@ -9,6 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -26,7 +27,7 @@ class articulosListViewModel @Inject constructor(
 
     init{
         viewModelScope.launch {
-            repository.getAll().collect { list ->
+            repository.getAll().collect{ list ->
                 _uiState.update{
                     it.copy( articulo = list)
                 }

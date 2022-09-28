@@ -34,7 +34,7 @@ class articulosListViewModel @Inject constructor(
         }
     }
 
-    fun borrarModelo(articulo: Articulo){
+    fun borrarArticulo(articulo: Articulo){
         viewModelScope.launch(
             Dispatchers.IO
         ) {

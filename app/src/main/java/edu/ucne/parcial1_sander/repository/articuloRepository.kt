@@ -19,5 +19,5 @@ class articuloRepository @Inject constructor(
         db.articulosDAO.Eliminar(articulo)
     }
 
-    fun GetList() = db.articulosDao.getall()
+    fun getAll() = db.articulosDAO.getAll()
 }

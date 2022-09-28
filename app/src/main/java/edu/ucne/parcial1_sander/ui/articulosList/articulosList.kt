@@ -18,7 +18,7 @@ import edu.ucne.parcial1_sander.model.Articulo
 @Composable
 fun articulosList(
     onClick: () -> Unit,
-    viewModel: ArticulosListViewModel = hiltViewModel()
+    viewModel: articulosListViewModel = hiltViewModel()
 ) {
     Scaffold(
         topBar = { Text(text = "Screen") },
@@ -35,7 +35,7 @@ fun articulosList(
                 .fillMaxWidth()
                 .padding(it)
         ) {
-            modelList(
+            articuloList(
                 model = uiState.articulo,
                 modifier = Modifier
                     .fillMaxSize()
@@ -46,9 +46,9 @@ fun articulosList(
 }
 
 @Composable
-fun modelList(
+fun articuloList(
     articulos: List<Articulo>,
-    viewModel: ArticulosListViewModel = hiltViewModel(),
+    viewModel: articulosListViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ){
     LazyColumn(modifier = modifier){
@@ -59,7 +59,7 @@ fun modelList(
 }
 
 @Composable
-fun modelRow(articulo: Articulo, viewModel: modeloList){
+fun modelRow(articulo: Articulo, viewModel: articuloList){
     Column(modifier = Modifier
         .fillMaxWidth()
         .padding(4.dp)

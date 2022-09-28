@@ -12,22 +12,22 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
-data class modeloList(
+data class articuloList(
     val articulo: List<Articulo> = emptyList()
 )
 
 @HiltViewModel
-class ScreenListViewModel @Inject constructor(
+class articulosListViewModel @Inject constructor(
     //val repository: -repository name-
 ): ViewModel(){
-    private val _uiState = MutableStateFlow(modeloList())
-    val uiState: StateFlow<modeloList> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(articuloList())
+    val uiState: StateFlow<articuloList> = _uiState.asStateFlow()
 
     init{
         viewModelScope.launch {
 //            repository.getAll().collect { list ->
 //                _uiState.update{
-//                    it.copy( modelo = list)
+//                    it.copy( articulo = list)
 //                }
 //            }
         }
@@ -37,7 +37,7 @@ class ScreenListViewModel @Inject constructor(
         viewModelScope.launch(
             Dispatchers.IO
         ) {
-//            repository.BorrarModelo(modelo)
+//            repository.BorrarArticulo(articulo)
         }
     }
 }

@@ -3,7 +3,7 @@ package edu.ucne.parcial1_sander.ui.ScreenList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import edu.ucne.parcial1_sander.model.Modelo
+import edu.ucne.parcial1_sander.model.Articulo
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 
 data class modeloList(
-    val modelo: List<Modelo> = emptyList()
+    val articulo: List<Articulo> = emptyList()
 )
 
 @HiltViewModel
@@ -33,7 +33,7 @@ class ScreenListViewModel @Inject constructor(
         }
     }
 
-    fun borrarModelo(modelo: Modelo){
+    fun borrarModelo(articulo: Articulo){
         viewModelScope.launch(
             Dispatchers.IO
         ) {

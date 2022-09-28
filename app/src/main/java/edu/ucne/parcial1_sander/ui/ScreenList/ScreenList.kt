@@ -6,8 +6,6 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material.icons.filled.Create
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -15,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import edu.ucne.parcial1_sander.model.Modelo
+import edu.ucne.parcial1_sander.model.Articulo
 
 @Composable
 fun ScreenList(
@@ -38,7 +36,7 @@ fun ScreenList(
                 .padding(it)
         ) {
             modelList(
-                model = uiState.modelo,
+                model = uiState.articulo,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(it)
@@ -49,7 +47,7 @@ fun ScreenList(
 
 @Composable
 fun modelList(
-    model: List<Modelo>,
+    model: List<Articulo>,
     viewModel: ScreenListViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ){
@@ -61,7 +59,7 @@ fun modelList(
 }
 
 @Composable
-fun modelRow( model: Modelo, viewModel: modeloList){
+fun modelRow(model: Articulo, viewModel: modeloList){
     Column(modifier = Modifier
         .fillMaxWidth()
         .padding(4.dp)

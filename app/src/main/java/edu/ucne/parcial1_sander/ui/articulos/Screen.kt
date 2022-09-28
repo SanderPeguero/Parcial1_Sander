@@ -1,22 +1,21 @@
-package edu.ucne.parcial1_sander.ui.Screen
+package edu.ucne.parcial1_sander.ui.articulos
 
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.runtime.Composable
-import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun Screen(
+fun articulos(
     onNavigateBack: () -> Unit,
 //    viewModel: ScreenViewModel = hiltViewModel()
 ){
     Scaffold(
-        topBar = { Text(text = "Screen")},
+        topBar = { Text(text = "Articulos")},
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    //viewModel.save()
+//                    viewModel.save()
                     onNavigateBack()
                 }
 

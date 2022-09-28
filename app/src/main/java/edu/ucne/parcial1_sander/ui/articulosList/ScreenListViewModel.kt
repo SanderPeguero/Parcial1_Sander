@@ -1,4 +1,4 @@
-package edu.ucne.parcial1_sander.ui.ScreenList
+package edu.ucne.parcial1_sander.ui.articulosList
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

@@ -1,4 +1,4 @@
-package edu.ucne.parcial1_sander.ui.ScreenList
+package edu.ucne.parcial1_sander.ui.articulosList
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,9 +16,9 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import edu.ucne.parcial1_sander.model.Articulo
 
 @Composable
-fun ScreenList(
+fun articulosList(
     onClick: () -> Unit,
-    viewModel: ScreenListViewModel = hiltViewModel()
+    viewModel: ArticulosListViewModel = hiltViewModel()
 ) {
     Scaffold(
         topBar = { Text(text = "Screen") },
@@ -47,33 +47,37 @@ fun ScreenList(
 
 @Composable
 fun modelList(
-    model: List<Articulo>,
-    viewModel: ScreenListViewModel = hiltViewModel(),
+    articulos: List<Articulo>,
+    viewModel: ArticulosListViewModel = hiltViewModel(),
     modifier: Modifier = Modifier
 ){
     LazyColumn(modifier = modifier){
-        items(model){
-            modelo -> modelRow(modelo, viewModel)
+        items(articulos){
+            articulo -> modelRow(articulo, viewModel)
         }
     }
 }
 
 @Composable
-fun modelRow(model: Articulo, viewModel: modeloList){
+fun modelRow(articulo: Articulo, viewModel: modeloList){
     Column(modifier = Modifier
         .fillMaxWidth()
         .padding(4.dp)
     ) {
         Text(
-            text = "Id: ${model.id}"
+            text = "ArticuloId: ${articulo.articuloId}"
         )
 
         Text(
-            text = "Cadena1: ${model.cadena1}"
+            text = "Descripcion: ${articulo.descripcion}"
         )
 
         Text(
-            text = "Cadena2: ${model.cadena2}"
+            text = "Marca: ${articulo.marca}"
+        )
+
+        Text(
+            text = "Existencia: ${articulo.existencia}"
         )
 
         Row(
@@ -81,7 +85,7 @@ fun modelRow(model: Articulo, viewModel: modeloList){
             horizontalArrangement = Arrangement.SpaceBetween) {
             IconButton(
                 modifier = Modifier.padding(0.dp),
-                //onClick = {viewModel.EliminarPantalla(model)}
+                onClick = { viewModel.EliminarArticulo(articulo) }
             ) {
                 Icon(
                     imageVector = Icons.Default.Clear,

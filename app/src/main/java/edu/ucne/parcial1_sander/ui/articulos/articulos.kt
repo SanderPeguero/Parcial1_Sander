@@ -18,7 +18,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun articulos(
     onNavigateBack: () -> Unit,
-    viewModel: articulosViewModel = hiltViewModel()
+    viewModel: articulosViewModel = hiltViewModel(),
+    articuloId: Int = 0
 ){
     Scaffold(
         topBar = { Text(text = "Articulos")},

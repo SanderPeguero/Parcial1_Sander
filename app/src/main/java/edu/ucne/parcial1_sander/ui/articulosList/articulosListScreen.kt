@@ -2,6 +2,7 @@ package edu.ucne.parcial1_sander.ui.articulosList
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -16,7 +17,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import edu.ucne.parcial1_sander.model.Articulo
 
 @Composable
-fun articulosList(
+fun articulosListScreen(
     onClick: () -> Unit,
     viewModel: articulosListViewModel = hiltViewModel()
 ) {
@@ -35,31 +36,40 @@ fun articulosList(
                 .fillMaxWidth()
                 .padding(it)
         ) {
-            articuloList(
-                model = uiState.articulo,
+//            articuloList(
+//
+//            )
+            ArticuloList(
+                uiState.articulos,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(it)
-            )
+            ){
+                viewModel.borrarArticulo(it)
+            }
         }
     }
 }
 
 @Composable
-fun articuloList(
+fun ArticuloList(
     articulos: List<Articulo>,
-    viewModel: articulosListViewModel = hiltViewModel(),
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onEliminar: (Articulo) -> Unit
 ){
     LazyColumn(modifier = modifier){
         items(articulos){
-            articulo -> modelRow(articulo, viewModel)
+            articulo ->
+            modelRow(articulo = articulo) {
+                onEliminar(it)
+            }
         }
     }
 }
 
+
 @Composable
-fun modelRow(articulo: Articulo, viewModel: articuloList){
+fun modelRow(articulo: Articulo, onEliminar: (Articulo) -> Unit){
     Column(modifier = Modifier
         .fillMaxWidth()
         .padding(4.dp)
@@ -85,7 +95,7 @@ fun modelRow(articulo: Articulo, viewModel: articuloList){
             horizontalArrangement = Arrangement.SpaceBetween) {
             IconButton(
                 modifier = Modifier.padding(0.dp),
-                onClick = { viewModel.EliminarArticulo(articulo) }
+                onClick = { onEliminar(articulo) }
             ) {
                 Icon(
                     imageVector = Icons.Default.Clear,

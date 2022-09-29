@@ -5,7 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import edu.ucne.parcial1_sander.ui.articulos.articulos
-import edu.ucne.parcial1_sander.ui.articulosList.articulosList
+import edu.ucne.parcial1_sander.ui.articulosList.articulosListScreen
 
 @Composable
 fun Navigate(
@@ -17,7 +17,7 @@ fun Navigate(
         }
         
         composable("ArticulosList"){
-            articulosList(onClick = { navController.navigate("ArticulosList") })
+            articulosListScreen(onClick = { navController.navigate("ArticulosList") })
         }
     }
 }

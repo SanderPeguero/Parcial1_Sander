@@ -11,13 +11,13 @@ import edu.ucne.parcial1_sander.ui.articulosList.articulosListScreen
 fun Navigate(
     navController: NavHostController
 ){
-    NavHost(navController = navController, startDestination = "Articulos"){
+    NavHost(navController = navController, startDestination = "ArticulosList"){
         composable("Articulos"){
             articulos({ navController.navigateUp() })
         }
         
         composable("ArticulosList"){
-            articulosListScreen(onClick = { navController.navigate("ArticulosList") })
+            articulosListScreen(onClick = { navController.navigate("Articulos") })
         }
     }
 }

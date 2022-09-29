@@ -8,15 +8,15 @@ class articuloRepository @Inject constructor(
     val db: AppDatabase
 ){
     suspend fun InsertarArticulo(articulo: Articulo){
-        db.articulosDAO.Insertar(articulo)
+        db.articulosDAO.InsertarArticulo(articulo)
     }
 
     suspend fun ActualizarArticulo(articulo: Articulo){
-        db.articulosDAO.Actualizar(articulo)
+        db.articulosDAO.ActualizarArticulo(articulo)
     }
 
     suspend fun EliminarArticulo(articulo: Articulo){
-        db.articulosDAO.Eliminar(articulo)
+        db.articulosDAO.EliminarArticulo(articulo)
     }
 
     fun getAll() = db.articulosDAO.getAll()
